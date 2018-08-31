@@ -115,7 +115,7 @@ apt -y -q install libglu1-mesa lib32z1 lib32ncurses5 libfreetype6:i386 libsm6:i3
     wget https://raw.githubusercontent.com/jpmsb/gui/master/informativo-audio.jpg -O /usr/share/images/informativo-audio.jpg && \
     chmod 400 /usr/share/images/informativo-audio.jpg && \
     \
-    apt -y -q install mu python-gpiozero python3-gpiozero raspberrypi-ui-mods raspberrypi-archive-keyring raspberrypi-artwork raspberrypi-net-mods raspberrypi-sys-mods && \
+    apt -y -q install mu python-gpiozero python3-gpiozero raspberrypi-ui-mods raspberrypi-archive-keyring raspberrypi-artwork raspberrypi-net-mods raspberrypi-sys-mods libreoffice-pi && \
     echo "# deb http://archive.raspberrypi.org/debian/ stretch main ui" > /etc/apt/sources.list.d/raspi.list && \
     apt update && \
     \
@@ -442,6 +442,7 @@ apt -y -q install libglu1-mesa lib32z1 lib32ncurses5 libfreetype6:i386 libsm6:i3
     \
     sed -i '85s/.*/unix_sock_group = "aluno"/' /etc/libvirt/libvirtd.conf && \
     sed -i '102s/.*/unix_sock_rw_perms = "0770"/' /etc/libvirt/libvirtd.conf && \
+    sed -i '35s/.*/#X2GO_NXAGENT_DEFAULT_OPTIONS+=" -extension BIG-REQUESTS"/' /etc/x2go/x2goagent.options && \
     \
     rm -r /etc/localtime && \
     ln -snf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && \
